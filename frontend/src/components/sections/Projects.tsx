@@ -3,109 +3,176 @@ import { X, ExternalLink, Github, Calendar } from 'lucide-react';
 import { Project } from '../../types';
 import ProjectCard from '../ui/ProjectCard';
 
-// Demo projects data from data.sql
+// Real projects data
 const demoProjects: Project[] = [
   {
     id: 1,
-    title: 'E-Commerce Platform',
-    description: 'Full-stack e-commerce application with payment integration',
-    detailedDescription: 'A comprehensive e-commerce platform built with Spring Boot and React. Features include user authentication, product catalog, shopping cart, order management, and Stripe payment integration. The application uses PostgreSQL for data persistence and is deployed on AWS with CI/CD pipeline.',
+    title: 'Survey Platform',
+    description: 'User can make private or public surveys with better analytics section',
+    detailedDescription: 'A comprehensive survey platform where users can create private or public surveys with advanced analytics. Features include anonymous survey responses, data export in CSV and JSON formats, survey sharing via links, and detailed analytics dashboard. Users can also browse and import data from other public surveys.',
     category: 'Web Application',
     featured: true,
     createdDate: '2024-01-15',
-    liveUrl: 'https://ecommerce-demo.com',
-    repositoryUrl: 'https://github.com/johndoe/ecommerce-platform',
-    technologies: ['Java', 'Spring Boot', 'React', 'TypeScript', 'PostgreSQL', 'AWS', 'Stripe API'],
-    imageUrls: ['https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80']
-  },
-  {
-    id: 2,
-    title: 'MERN Social Media App',
-    description: 'Full-stack social media platform using MERN stack',
-    detailedDescription: 'A modern social media application built with MongoDB, Express.js, React, and Node.js. Features include user authentication, real-time messaging, post creation with image uploads, likes and comments, friend system, and responsive design. Deployed on Heroku with MongoDB Atlas.',
-    category: 'Web Application',
-    featured: true,
-    createdDate: '2024-02-20',
-    liveUrl: 'https://mern-social-demo.com',
-    repositoryUrl: 'https://github.com/johndoe/mern-social-app',
-    technologies: ['MongoDB', 'Express.js', 'React', 'Node.js', 'Socket.io', 'JWT', 'Cloudinary', 'Heroku'],
-    imageUrls: ['https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80']
-  },
-  {
-    id: 3,
-    title: 'Next.js Portfolio Website',
-    description: 'Modern portfolio website built with Next.js',
-    detailedDescription: 'A sleek and responsive portfolio website showcasing projects and skills. Built with Next.js 14, TypeScript, and Tailwind CSS. Features server-side rendering, optimized images, dark mode, contact form with email integration, and deployed on Vercel with excellent performance scores.',
-    category: 'Frontend',
-    featured: true,
-    createdDate: '2024-03-10',
-    liveUrl: 'https://nextjs-portfolio-demo.vercel.app',
-    repositoryUrl: 'https://github.com/johndoe/nextjs-portfolio',
-    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Vercel', 'Framer Motion', 'EmailJS'],
-    imageUrls: ['https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80']
-  },
-  {
-    id: 4,
-    title: 'Python Data Analytics Dashboard',
-    description: 'Interactive dashboard for data visualization',
-    detailedDescription: 'A comprehensive data analytics dashboard built with Python, Flask, and Plotly. Features include data processing with Pandas, interactive charts, real-time data updates, user authentication, and export functionality. Connects to multiple data sources including CSV, JSON, and databases.',
-    category: 'Data Science',
-    featured: false,
-    createdDate: '2024-01-05',
-    liveUrl: 'https://python-dashboard-demo.com',
-    repositoryUrl: 'https://github.com/johndoe/python-dashboard',
-    technologies: ['Python', 'Flask', 'Plotly', 'Pandas', 'SQLAlchemy', 'Bootstrap', 'Chart.js'],
+    liveUrl: 'https://survease-v2-uppv.onrender.com',
+    repositoryUrl: 'https://github.com/perashanid/survease_v2',
+    technologies: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Chart.js', 'JWT'],
     imageUrls: ['https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80']
   },
   {
-    id: 5,
-    title: 'React Native Mobile App',
-    description: 'Cross-platform mobile app for expense tracking',
-    detailedDescription: 'A feature-rich expense tracking mobile application built with React Native and Expo. Includes user authentication, expense categorization, budget tracking, data visualization with charts, offline support, and cloud synchronization. Available for both iOS and Android platforms.',
-    category: 'Mobile',
+    id: 2,
+    title: 'BookMarket',
+    description: 'People can auction, trade or sell books at a fixed price and share books using PDFs',
+    detailedDescription: 'A comprehensive book marketplace where users can auction, trade, or sell books at fixed prices. The platform also supports PDF book sharing, creating a complete ecosystem for book enthusiasts. Features include user authentication, bidding system, secure transactions, and file upload capabilities.',
+    category: 'Web Application',
+    featured: true,
+    createdDate: '2024-02-20',
+    liveUrl: 'https://book-marketplace-bfo0.onrender.com',
+    repositoryUrl: 'https://github.com/perashanid/Book-marketplace-v2',
+    technologies: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Multer', 'Socket.io'],
+    imageUrls: ['https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80']
+  },
+  {
+    id: 3,
+    title: 'Campaign Builder',
+    description: 'User can create fundraising and blood donation campaigns, share unique links',
+    detailedDescription: 'A platform for creating and managing fundraising and blood donation campaigns. Users can create campaigns, share unique links, track progress, and manage donations. Features include campaign analytics, social sharing, and real-time updates on campaign progress.',
+    category: 'Frontend',
+    featured: true,
+    createdDate: '2024-03-10',
+    liveUrl: 'https://campaignbuilder.onrender.com',
+    repositoryUrl: 'https://github.com/perashanid/campaignBuilder',
+    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Express.js'],
+    imageUrls: ['https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80']
+  },
+  {
+    id: 4,
+    title: 'Loading Terminal',
+    description: 'Interactive terminal-style loading interface',
+    detailedDescription: 'A creative terminal-style loading interface that simulates command-line operations. Perfect for adding a unique touch to web applications with its retro terminal aesthetic and smooth animations.',
+    category: 'Frontend',
     featured: false,
+    createdDate: '2024-01-05',
+    liveUrl: 'https://loading-terminal.onrender.com',
+    repositoryUrl: 'https://github.com/perashanid/loading-terminal',
+    technologies: ['HTML', 'CSS', 'JavaScript', 'Animation'],
+    imageUrls: ['https://images.unsplash.com/photo-1629654297299-c8506221ca97?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80']
+  },
+  {
+    id: 5,
+    title: 'BD Stock Market API',
+    description: 'The only free API for Bangladesh stock market data',
+    detailedDescription: 'A comprehensive REST API providing free access to Bangladesh stock market data. This is the only free API available for BD stock market information, offering real-time stock prices, historical data, and market analytics.',
+    category: 'Backend',
+    featured: true,
     createdDate: '2023-12-15',
-    repositoryUrl: 'https://github.com/johndoe/expense-tracker-mobile',
-    technologies: ['React Native', 'Expo', 'AsyncStorage', 'React Navigation', 'Firebase', 'Chart.js'],
-    imageUrls: ['https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80']
+    liveUrl: 'https://bd-stock-market-api.onrender.com',
+    repositoryUrl: 'https://github.com/perashanid/bd-stock-market-api',
+    technologies: ['Node.js', 'Express.js', 'Web Scraping', 'REST API', 'MongoDB'],
+    imageUrls: ['https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80']
   },
   {
     id: 6,
-    title: 'Spring Boot Microservices',
-    description: 'Distributed system with Spring Cloud',
-    detailedDescription: 'A microservices-based application demonstrating service discovery, API gateway, circuit breakers, and distributed tracing. Built with Spring Cloud, Docker, and Kubernetes. Includes monitoring with Prometheus and Grafana, centralized logging, and automated deployment pipelines.',
+    title: 'Stock Market BD',
+    description: 'View BD stocks, profiles, top 30 stocks, register and create portfolio, check performance',
+    detailedDescription: 'A comprehensive Bangladesh stock market platform where users can view stock information, company profiles, top 30 stocks, register accounts, create portfolios, and track portfolio performance. Built using the BD Stock Market API for real-time data.',
     category: 'Backend',
     featured: true,
     createdDate: '2023-11-05',
-    repositoryUrl: 'https://github.com/johndoe/microservices-demo',
-    technologies: ['Java', 'Spring Boot', 'Spring Cloud', 'Docker', 'Kubernetes', 'Prometheus', 'Grafana', 'RabbitMQ'],
-    imageUrls: ['https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80']
+    liveUrl: 'https://bangladesh-stock-market.onrender.com',
+    repositoryUrl: 'https://github.com/perashanid/stock-market',
+    technologies: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Chart.js', 'JWT'],
+    imageUrls: ['https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80']
   },
   {
     id: 7,
-    title: 'JavaScript Game Engine',
-    description: 'Browser-based 2D game engine',
-    detailedDescription: 'A lightweight 2D game engine built with vanilla JavaScript and HTML5 Canvas. Features include sprite animation, collision detection, sound management, scene transitions, and a level editor. Includes sample games demonstrating the engine capabilities and comprehensive documentation.',
-    category: 'Game Development',
-    featured: false,
+    title: 'Media Bias Detector',
+    description: 'Website that detects bias in media articles with scraping and analysis features',
+    detailedDescription: 'An AI-powered platform that detects bias in media articles. Users can register, scrape articles by URL or website, select scraping quantity, run bias tests, favorite articles, and save them. Features advanced web scraping and natural language processing for bias detection.',
+    category: 'Data Science',
+    featured: true,
     createdDate: '2023-10-20',
-    liveUrl: 'https://js-game-engine-demo.com',
-    repositoryUrl: 'https://github.com/johndoe/js-game-engine',
-    technologies: ['JavaScript', 'HTML5 Canvas', 'Web Audio API', 'CSS3', 'Webpack'],
-    imageUrls: ['https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80']
+    liveUrl: 'https://media-bias-a9x2.onrender.com',
+    repositoryUrl: 'https://github.com/perashanid/Media-bias',
+    technologies: ['Python', 'Flask', 'NLP', 'Web Scraping', 'Machine Learning', 'BeautifulSoup'],
+    imageUrls: ['https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80']
   },
   {
     id: 8,
-    title: 'MongoDB Blog CMS',
-    description: 'Content management system with MongoDB',
-    detailedDescription: 'A modern blog CMS built with Node.js, Express, and MongoDB. Features include rich text editor, image uploads, user roles and permissions, SEO optimization, comment system, and admin dashboard. Supports multiple themes and plugins for extensibility.',
-    category: 'CMS',
-    featured: false,
+    title: 'Research Paper Analyzer',
+    description: 'AI-powered tool to extract information from research papers via links, PDFs, or URLs',
+    detailedDescription: 'An intelligent research paper analyzer powered by Gemini 2.5 Pro. Users can provide links, PDFs, or URLs to get necessary information extracted from research papers. Features advanced AI processing for academic document analysis and information extraction.',
+    category: 'Data Science',
+    featured: true,
     createdDate: '2023-09-25',
-    liveUrl: 'https://mongodb-blog-demo.com',
-    repositoryUrl: 'https://github.com/johndoe/mongodb-blog-cms',
-    technologies: ['Node.js', 'Express.js', 'MongoDB', 'EJS', 'Multer', 'Passport.js', 'Bootstrap'],
-    imageUrls: ['https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80']
+    liveUrl: 'https://research-paper-analyzer-htn7.onrender.com',
+    repositoryUrl: 'https://github.com/perashanid/ai-wrapper',
+    technologies: ['Python', 'Gemini AI', 'Flask', 'PDF Processing', 'NLP', 'API Integration'],
+    imageUrls: ['https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80']
+  },
+  {
+    id: 9,
+    title: 'Algotrader',
+    description: 'Users can create algorithms to compete with Wall Street, backtest strategies on US stocks',
+    detailedDescription: 'A sophisticated algorithmic trading platform where users can create their own trading algorithms to compete with Wall Street. Features include custom buy/sell constraints, stock categorization, strategy backtesting based on historical US stock data, and performance analytics.',
+    category: 'Data Science',
+    featured: true,
+    createdDate: '2023-08-15',
+    liveUrl: 'https://algotrade-v1.onrender.com',
+    repositoryUrl: 'https://github.com/perashanid/algotrade',
+    technologies: ['Python', 'Flask', 'Pandas', 'NumPy', 'Financial APIs', 'Chart.js', 'Backtesting'],
+    imageUrls: ['https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80']
+  },
+  {
+    id: 10,
+    title: '404 Space Shooter',
+    description: 'A basic 404 page with space shooter browser game',
+    detailedDescription: 'A creative 404 error page featuring an interactive space shooter game built directly in the browser. Instead of a boring error message, users can enjoy a fun retro-style space shooting game while they navigate back to the main site.',
+    category: 'Game Development',
+    featured: false,
+    createdDate: '2023-07-20',
+    liveUrl: 'https://four04-space-shooter.onrender.com',
+    repositoryUrl: 'https://github.com/perashanid/404_space_shooter',
+    technologies: ['JavaScript', 'HTML5 Canvas', 'CSS3', 'Game Development'],
+    imageUrls: ['https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80']
+  },
+  {
+    id: 11,
+    title: 'Personal Portfolio',
+    description: 'Personal website of Shanid Sajjatuz Islam',
+    detailedDescription: 'A comprehensive personal portfolio website showcasing projects, skills, and professional experience. Built with modern web technologies and featuring responsive design, smooth animations, and optimized performance.',
+    category: 'Others',
+    featured: true,
+    createdDate: '2023-06-15',
+    liveUrl: 'https://portfolio-of-shanid.onrender.com',
+    repositoryUrl: 'https://github.com/perashanid/Portfolio_v1',
+    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+    imageUrls: ['https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80']
+  },
+  {
+    id: 12,
+    title: 'Calculator App',
+    description: 'A basic calculator application',
+    detailedDescription: 'A clean and functional calculator application built with modern web technologies. Features basic arithmetic operations with a user-friendly interface and responsive design.',
+    category: 'Others',
+    featured: false,
+    createdDate: '2023-05-10',
+    liveUrl: 'https://basic-calculator-uwvp.onrender.com',
+    repositoryUrl: 'https://github.com/perashanid/basic_calculator',
+    technologies: ['HTML', 'CSS', 'JavaScript'],
+    imageUrls: ['https://images.unsplash.com/photo-1587145820266-a5951ee6f620?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80']
+  },
+  {
+    id: 13,
+    title: 'Under Maintenance Website',
+    description: 'A basic placeholder website for maintenance periods',
+    detailedDescription: 'A professional under maintenance page template with clean design and informative messaging. Perfect for displaying during website updates or server maintenance periods.',
+    category: 'Others',
+    featured: false,
+    createdDate: '2023-04-05',
+    liveUrl: 'https://under-maintenance-website-page.onrender.com',
+    repositoryUrl: 'https://github.com/perashanid/Under_maintenance_website_page',
+    technologies: ['HTML', 'CSS', 'JavaScript'],
+    imageUrls: ['https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80']
   }
 ];
 
@@ -114,7 +181,7 @@ const Projects: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   
   const projects = demoProjects;
-  const categories = ['all', 'Web Application', 'Frontend', 'Backend', 'Mobile', 'Data Science', 'Game Development', 'CMS'];
+  const categories = ['all', 'Web Application', 'Frontend', 'Backend', 'Data Science', 'Game Development', 'Others'];
 
   const filteredProjects = selectedCategory === 'all' 
     ? projects 

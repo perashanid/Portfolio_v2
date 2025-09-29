@@ -4,17 +4,17 @@ const Footer: React.FC = () => {
   // Static personal info data
   const personalInfo = {
     name: 'Shanid Sajjatuz Islam',
-    email: 'shanid.sajjatuz@example.com',
+    email: 'shanidsajjatuz@gmail.com',
     phone: '+880 1234-567890',
-    githubUrl: 'https://github.com/shanidsajjatuz',
+    githubUrl: 'https://github.com/perashanid',
     linkedinUrl: 'https://linkedin.com/in/shanidsajjatuz',
-    resumeUrl: '/resume.pdf'
+    resumeUrl: 'https://shanid-cv.vercel.app'
   };
 
   const socialLinks = [
     {
       name: 'GitHub',
-      url: 'https://github.com/shanidsajjatuz',
+      url: 'https://github.com/perashanid',
       icon: Github,
     },
     {
@@ -24,12 +24,12 @@ const Footer: React.FC = () => {
     },
     {
       name: 'Twitter',
-      url: 'https://twitter.com/shanidsajjatuz',
+      url: 'https://twitter.com/perashanid',
       icon: Twitter,
     },
     {
       name: 'Instagram',
-      url: 'https://instagram.com/shanidsajjatuz',
+      url: 'https://instagram.com/perashanid',
       icon: Instagram,
     },
   ];

@@ -9,11 +9,11 @@ const Contact: React.FC = () => {
     title: 'Full Stack Developer',
     bio: 'Passionate software developer with 5+ years of experience building modern web applications using Java, React, and cloud technologies.',
     detailedBio: 'I am a dedicated full-stack developer with over 5 years of experience in creating robust, scalable web applications.',
-    email: 'shanid.sajjatuz@example.com',
+    email: 'shanidsajjatuz@gmail.com',
     phone: '+880 1234-567890',
     linkedinUrl: 'https://linkedin.com/in/shanidsajjatuz',
-    githubUrl: 'https://github.com/shanidsajjatuz',
-    resumeUrl: 'https://example.com/resume.pdf',
+    githubUrl: 'https://github.com/perashanid',
+    resumeUrl: 'https://shanid-cv.vercel.app',
     profileImageUrl: 'https://ui-avatars.com/api/?name=Shanid+Sajjatuz+Islam&size=400&background=715A5A&color=D3DAD9&bold=true'
   };
 
