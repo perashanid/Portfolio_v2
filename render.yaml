@@ -2,10 +2,11 @@ services:
   - type: web
     name: portfolio
     runtime: node
-    buildCommand: npm install && npm run build
+    buildCommand: npm ci && npm run build
     startCommand: npm start
     plan: free
     env: production
+    rootDir: .
     envVars:
       - key: NODE_ENV
         value: production
