@@ -2,7 +2,7 @@ services:
   - type: web
     name: portfolio
     runtime: node
-    buildCommand: npm run build
+    buildCommand: npm install && npm run build
     startCommand: npm start
     plan: free
     env: production
