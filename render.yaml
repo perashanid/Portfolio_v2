@@ -1,9 +1,9 @@
 services:
-  # Backend Service - Java Spring Boot
+  # Single Web Service - Spring Boot serving React
   - type: web
-    name: portfolio-backend
+    name: portfolio-fullstack
     runtime: java
-    buildCommand: cd backend && chmod +x ./mvnw && ./mvnw clean package -DskipTests
+    buildCommand: cd frontend && npm ci && npm run build && cd ../backend && chmod +x ./mvnw && ./mvnw clean package -DskipTests
     startCommand: cd backend && java -Dserver.port=$PORT -jar target/portfolio-backend-0.0.1-SNAPSHOT.jar
     plan: free
     env: production
@@ -20,19 +20,6 @@ services:
         value: create-drop
       - key: SPRING_H2_CONSOLE_ENABLED
         value: false
-    healthCheckPath: /api/projects
-
-  # Frontend Service - React Static Site
-  - type: static
-    name: portfolio-frontend
-    buildCommand: cd frontend && npm ci && npm run build
-    staticPublishPath: frontend/dist
-    plan: free
-    env: production
-    envVars:
       - key: NODE_VERSION
         value: 18
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
+    healthCheckPath: /

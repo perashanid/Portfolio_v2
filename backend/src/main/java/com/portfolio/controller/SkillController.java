@@ -14,7 +14,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/skills")
-@CrossOrigin(origins = {"http://localhost:3000", "http://localhost:5173", "https://portfolio-frontend.onrender.com"})
+// @CrossOrigin not needed - serving from same domain
 public class SkillController {
 
     private final SkillService skillService;

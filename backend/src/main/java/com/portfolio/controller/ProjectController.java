@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/projects")
-@CrossOrigin(origins = {"http://localhost:3000", "http://localhost:5173", "https://portfolio-frontend.onrender.com"})
+// @CrossOrigin not needed - serving from same domain
 public class ProjectController {
 
     private final ProjectService projectService;
