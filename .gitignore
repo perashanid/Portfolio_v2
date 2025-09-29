@@ -1,13 +1,3 @@
-# Java
-*.class
-*.log
-*.jar
-*.war
-*.ear
-target/
-.mvn/timing.properties
-.mvn/wrapper/maven-wrapper.jar
-
 # Node.js
 node_modules/
 npm-debug.log*

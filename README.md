@@ -1,14 +1,15 @@
 # Portfolio Website
 
-A modern, full-stack portfolio website built with React and Spring Boot.
+A modern, full-stack portfolio website built with React and Node.js.
 
 ## Features
 
 - **Frontend**: React + TypeScript + Tailwind CSS
-- **Backend**: Spring Boot + H2 Database
+- **Backend**: Node.js + Express
 - **Single Service**: Frontend and backend served from one application
 - **Responsive Design**: Works on all devices
-- **Contact Form**: Functional contact form with email integration
+- **Contact Form**: Functional contact form
+- **Fast Deployment**: Simple Node.js deployment
 
 ## Quick Start
 
@@ -26,7 +27,7 @@ A modern, full-stack portfolio website built with React and Spring Boot.
 
    This starts:
    - Frontend: http://localhost:5173
-   - Backend: http://localhost:8080
+   - Backend: http://localhost:3000
 
 ### Production Deploy
 
@@ -47,31 +48,33 @@ Your site will be live at `https://your-app-name.onrender.com`
 │   ├── src/
 │   ├── public/
 │   └── package.json
-├── backend/           # Spring Boot application
-│   ├── src/
-│   ├── pom.xml
-│   └── mvnw
+├── server.js          # Node.js Express server
 ├── render.yaml        # Render deployment config
 └── README.md
 ```
 
 ## How It Works
 
-1. **Build Process**: React builds to `frontend/dist`, Maven copies it to Spring Boot's static resources
-2. **Routing**: `/api/*` goes to backend, everything else serves React app
+1. **Build Process**: React builds to `frontend/dist`, Node.js serves static files
+2. **Routing**: `/api/*` goes to Express server, everything else serves React app
 3. **No CORS**: Frontend and API are on the same domain
 
 ## Tech Stack
 
 - **Frontend**: React 18, TypeScript, Tailwind CSS, Vite
-- **Backend**: Spring Boot 3, Java 17, H2 Database
+- **Backend**: Node.js, Express
 - **Deployment**: Render (single service)
+
+## API Endpoints
+
+- `GET /api/projects` - Get all projects
+- `GET /api/projects/:id` - Get single project
+- `POST /api/contact` - Submit contact form
 
 ## Environment Variables
 
 Production automatically uses:
-- `SPRING_PROFILES_ACTIVE=production`
-- `NODE_VERSION=18`
+- `NODE_ENV=production`
 
 ## License
 

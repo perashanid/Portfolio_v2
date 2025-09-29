@@ -7,7 +7,7 @@ const Contact: React.FC = () => {
     id: 1,
     name: 'Shanid Sajjatuz Islam',
     title: 'Full Stack Developer',
-    bio: 'Passionate software developer with 5+ years of experience building modern web applications using Java, React, and cloud technologies.',
+    bio: 'Passionate software developer with 5+ years of experience building modern web applications using Node.js, React, and cloud technologies.',
     detailedBio: 'I am a dedicated full-stack developer with over 5 years of experience in creating robust, scalable web applications.',
     email: 'shanidsajjatuz@gmail.com',
     phone: '+880 1234-567890',

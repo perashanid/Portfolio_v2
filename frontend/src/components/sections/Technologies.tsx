@@ -4,20 +4,18 @@ import { Skill } from '../../types';
 // Demo skills data from data.sql
 const demoSkills: Skill[] = [
   // Programming Languages
-  { id: 1, name: 'Java', category: 'Programming Languages', proficiencyLevel: 5, yearsOfExperience: 0, iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' },
-  { id: 2, name: 'JavaScript', category: 'Programming Languages', proficiencyLevel: 4, yearsOfExperience: 0, iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
-  { id: 3, name: 'TypeScript', category: 'Programming Languages', proficiencyLevel: 4, yearsOfExperience: 0, iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
-  { id: 4, name: 'Python', category: 'Programming Languages', proficiencyLevel: 4, yearsOfExperience: 0, iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
-  { id: 5, name: 'HTML5', category: 'Programming Languages', proficiencyLevel: 5, yearsOfExperience: 0, iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
-  { id: 6, name: 'CSS3', category: 'Programming Languages', proficiencyLevel: 4, yearsOfExperience: 0, iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+  { id: 1, name: 'JavaScript', category: 'Programming Languages', proficiencyLevel: 5, yearsOfExperience: 0, iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+  { id: 2, name: 'TypeScript', category: 'Programming Languages', proficiencyLevel: 4, yearsOfExperience: 0, iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
+  { id: 3, name: 'Python', category: 'Programming Languages', proficiencyLevel: 4, yearsOfExperience: 0, iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
+  { id: 4, name: 'HTML5', category: 'Programming Languages', proficiencyLevel: 5, yearsOfExperience: 0, iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+  { id: 5, name: 'CSS3', category: 'Programming Languages', proficiencyLevel: 4, yearsOfExperience: 0, iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
 
   // Frameworks & Libraries
-  { id: 7, name: 'Spring Boot', category: 'Frameworks', proficiencyLevel: 5, yearsOfExperience: 0, iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg' },
+  { id: 6, name: 'Node.js', category: 'Frameworks', proficiencyLevel: 5, yearsOfExperience: 0, iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
+  { id: 7, name: 'Express.js', category: 'Frameworks', proficiencyLevel: 5, yearsOfExperience: 0, iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg' },
   { id: 8, name: 'React', category: 'Frameworks', proficiencyLevel: 4, yearsOfExperience: 0, iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
-  { id: 9, name: 'Node.js', category: 'Frameworks', proficiencyLevel: 4, yearsOfExperience: 0, iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
-  { id: 10, name: 'Express.js', category: 'Frameworks', proficiencyLevel: 4, yearsOfExperience: 0, iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg' },
-  { id: 11, name: 'Tailwind CSS', category: 'Frameworks', proficiencyLevel: 4, yearsOfExperience: 0, iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg' },
-  { id: 12, name: 'Bootstrap', category: 'Frameworks', proficiencyLevel: 4, yearsOfExperience: 0, iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg' },
+  { id: 9, name: 'Tailwind CSS', category: 'Frameworks', proficiencyLevel: 4, yearsOfExperience: 0, iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg' },
+  { id: 10, name: 'Bootstrap', category: 'Frameworks', proficiencyLevel: 4, yearsOfExperience: 0, iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg' },
 
   // Databases
   { id: 13, name: 'PostgreSQL', category: 'Databases', proficiencyLevel: 4, yearsOfExperience: 0, iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },

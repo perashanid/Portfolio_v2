@@ -131,7 +131,7 @@ const Footer: React.FC = () => {
             <div className="flex items-center text-sm text-light-sage/60">
               <span>Made with</span>
               <Heart className="w-4 h-4 mx-1 text-warm-brown fill-current" />
-              <span>using React & Spring Boot</span>
+              <span>using React & Node.js</span>
             </div>
           </div>
         </div>

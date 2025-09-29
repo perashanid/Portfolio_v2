@@ -12,7 +12,7 @@ git push origin main
 2. Click "New +" → "Blueprint"
 3. Connect your GitHub repo
 4. Click "Apply" (Render detects `render.yaml`)
-5. Wait 5-10 minutes
+5. Wait 2-3 minutes (Node.js is fast!)
 
 ## 3. Done!
 Your portfolio will be live at: `https://portfolio.onrender.com`
@@ -20,8 +20,9 @@ Your portfolio will be live at: `https://portfolio.onrender.com`
 ## That's it!
 - No CORS configuration needed
 - No separate frontend/backend services
-- No complex Docker setup
-- Just one simple service serving everything
+- No Java/Maven complexity
+- Simple Node.js deployment
+- Just one service serving everything
 
 ## If you need to make changes:
 1. Edit your code
