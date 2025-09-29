@@ -9,7 +9,7 @@ COPY frontend/ ./
 RUN npm run build
 
 # Stage 2: Build backend with frontend
-FROM openjdk:17-jdk-slim AS backend-build
+FROM eclipse-temurin:17-jdk-alpine AS backend-build
 WORKDIR /app
 
 # Copy backend files
@@ -23,7 +23,7 @@ RUN chmod +x ./mvnw
 RUN ./mvnw clean package -DskipTests
 
 # Stage 3: Runtime
-FROM openjdk:17-jre-slim
+FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
 COPY --from=backend-build /app/backend/target/portfolio-backend-0.0.1-SNAPSHOT.jar app.jar
 
