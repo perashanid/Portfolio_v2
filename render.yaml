@@ -1,14 +1,12 @@
 services:
   - type: web
     name: portfolio
-    runtime: java
-    buildCommand: cd frontend && npm ci && npm run build && cd ../backend && mvn clean package -DskipTests
-    startCommand: cd backend && java -Dserver.port=$PORT -jar target/portfolio-backend-0.0.1-SNAPSHOT.jar
+    runtime: node
+    buildCommand: npm run build
+    startCommand: npm start
     plan: free
     env: production
     envVars:
-      - key: SPRING_PROFILES_ACTIVE
+      - key: NODE_ENV
         value: production
-      - key: NODE_VERSION
-        value: 18
     healthCheckPath: /
