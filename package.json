@@ -4,15 +4,9 @@
   "description": "A modern portfolio website with Spring Boot backend and React frontend",
   "scripts": {
     "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
-    "dev:backend": "cd backend && mvnw.cmd spring-boot:run",
+    "dev:backend": "cd backend && ./mvnw spring-boot:run",
     "dev:frontend": "cd frontend && npm run dev",
-    "build": "npm run build:backend && npm run build:frontend",
-    "build:backend": "cd backend && mvnw.cmd clean package",
-    "build:frontend": "cd frontend && npm run build",
-    "install:all": "cd backend && mvnw.cmd dependency:resolve && cd ../frontend && npm install",
-    "test": "npm run test:backend && npm run test:frontend",
-    "test:backend": "cd backend && mvnw.cmd test",
-    "test:frontend": "cd frontend && npm test"
+    "install:all": "cd frontend && npm install"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
@@ -21,8 +15,7 @@
     "portfolio",
     "spring-boot",
     "react",
-    "typescript",
-    "tailwindcss"
+    "typescript"
   ],
   "author": "Your Name",
   "license": "MIT"

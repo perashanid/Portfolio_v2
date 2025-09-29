@@ -1,7 +1,6 @@
 services:
-  # Single Web Service - Spring Boot serving React
   - type: web
-    name: portfolio-fullstack
+    name: portfolio
     runtime: java
     buildCommand: cd frontend && npm ci && npm run build && cd ../backend && chmod +x ./mvnw && ./mvnw clean package -DskipTests
     startCommand: cd backend && java -Dserver.port=$PORT -jar target/portfolio-backend-0.0.1-SNAPSHOT.jar
@@ -10,16 +9,6 @@ services:
     envVars:
       - key: SPRING_PROFILES_ACTIVE
         value: production
-      - key: SPRING_DATASOURCE_URL
-        value: jdbc:h2:mem:portfoliodb
-      - key: SPRING_DATASOURCE_DRIVER_CLASS_NAME
-        value: org.h2.Driver
-      - key: SPRING_JPA_DATABASE_PLATFORM
-        value: org.hibernate.dialect.H2Dialect
-      - key: SPRING_JPA_HIBERNATE_DDL_AUTO
-        value: create-drop
-      - key: SPRING_H2_CONSOLE_ENABLED
-        value: false
       - key: NODE_VERSION
         value: 18
     healthCheckPath: /

@@ -1,41 +1,35 @@
-# Quick Deployment Commands
+# Deploy to Render - Simple Steps
 
-## Before Deployment
-1. Commit all changes:
+## 1. Push to GitHub
 ```bash
 git add .
-git commit -m "Ready for Render deployment"
+git commit -m "Deploy to Render"
 git push origin main
 ```
 
-## Render Deployment Options
-
-### Option 1: Using render.yaml (Recommended)
+## 2. Deploy on Render
 1. Go to [render.com](https://render.com)
 2. Click "New +" → "Blueprint"
-3. Connect your GitHub repository
-4. Render will detect `render.yaml` and create both services automatically
+3. Connect your GitHub repo
+4. Click "Apply" (Render detects `render.yaml`)
+5. Wait 5-10 minutes
 
-### Option 2: Manual Setup
-Follow the detailed steps in `RENDER_DEPLOYMENT.md`
+## 3. Done!
+Your portfolio will be live at: `https://portfolio.onrender.com`
 
-## Important Service Names
-- Backend: `portfolio-backend`
-- Frontend: `portfolio-frontend`
+## That's it!
+- No CORS configuration needed
+- No separate frontend/backend services
+- No complex Docker setup
+- Just one simple service serving everything
 
-## Expected URLs After Deployment
-- Frontend: `https://portfolio-frontend.onrender.com`
-- Backend: `https://portfolio-backend.onrender.com`
+## If you need to make changes:
+1. Edit your code
+2. Push to GitHub
+3. Render auto-deploys
 
-## Environment Variables Needed
-
-### Backend:
-```
-SPRING_PROFILES_ACTIVE=production
-```
-*Note: PORT is automatically set by Render*
-
-### Frontend:
-```
-NODE_VERSION=18
+## Local development:
+```bash
+npm run install:all  # Install dependencies
+npm run dev          # Start dev servers
 ```
