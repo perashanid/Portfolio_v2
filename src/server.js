@@ -1,9 +1,10 @@
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
+const net = require('net');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PREFERRED_PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors());
@@ -72,11 +73,58 @@ app.post('/api/contact', (req, res) => {
   });
 });
 
+// Function to check if port is available
+const isPortAvailable = (port) => {
+  return new Promise((resolve) => {
+    const server = net.createServer();
+    
+    server.listen(port, '0.0.0.0', () => {
+      server.once('close', () => {
+        resolve(true);
+      });
+      server.close();
+    });
+    
+    server.on('error', () => {
+      resolve(false);
+    });
+  });
+};
+
+// Function to find available port
+const findAvailablePort = async (startPort, maxAttempts = 10) => {
+  for (let i = 0; i < maxAttempts; i++) {
+    const port = startPort + i;
+    const available = await isPortAvailable(port);
+    if (available) {
+      return port;
+    }
+    console.log(`Port ${port} is busy, trying next port...`);
+  }
+  throw new Error(`No available port found after ${maxAttempts} attempts starting from ${startPort}`);
+};
+
 // Serve React app for all other routes
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+// Start server with automatic port finding
+const startServer = async () => {
+  try {
+    const PORT = await findAvailablePort(PREFERRED_PORT);
+    
+    app.listen(PORT, '0.0.0.0', () => {
+      console.log(`🚀 Server running on http://0.0.0.0:${PORT}`);
+      console.log(`📱 Access your app at: http://135.235.169.147:${PORT}`);
+      if (PORT !== PREFERRED_PORT) {
+        console.log(`⚠️  Note: Preferred port ${PREFERRED_PORT} was busy, using port ${PORT} instead`);
+      }
+    });
+  } catch (error) {
+    console.error('❌ Failed to start server:', error.message);
+    process.exit(1);
+  }
+};
+
+startServer();
