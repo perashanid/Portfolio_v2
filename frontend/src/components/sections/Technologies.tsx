@@ -161,6 +161,26 @@ const Technologies: React.FC = () => {
             <p className="text-medium-gray dark:text-light-sage/70 text-lg">No technologies found in this category.</p>
           </div>
         )}
+
+        {/* GitHub Insights */}
+        <div className="mt-16 pt-12 border-t border-medium-gray/20 dark:border-light-sage/20">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl md:text-4xl font-bold mb-4 text-dark-charcoal dark:text-light-sage">
+              GitHub Activity
+            </h3>
+            <div className="w-20 h-1 bg-warm-brown dark:bg-warm-brown-light mx-auto mb-8"></div>
+            <p className="text-medium-gray dark:text-light-sage/80 max-w-2xl mx-auto">
+              A visual representation of my coding journey and contributions
+            </p>
+          </div>
+          <div className="flex justify-center">
+            <img
+              src="https://yourinsights.vercel.app/api/insight?username=perashanid"
+              alt="GitHub Insights"
+              className="w-full max-w-4xl rounded-lg shadow-lg"
+            />
+          </div>
+        </div>
       </div>
     </section>
   );
