@@ -4,7 +4,18 @@ const cors = require('cors');
 const net = require('net');
 
 const app = express();
-const PREFERRED_PORT = process.env.PORT || 3000;
+
+// Parse and validate port
+const parsePort = (portValue) => {
+  const port = parseInt(portValue, 10);
+  if (isNaN(port) || port < 0 || port > 65535) {
+    console.warn(`⚠️  Invalid port value: ${portValue}. Using default port 3000.`);
+    return 3000;
+  }
+  return port;
+};
+
+const PREFERRED_PORT = parsePort(process.env.PORT) || 3000;
 
 // Middleware
 app.use(cors());
@@ -93,15 +104,25 @@ const isPortAvailable = (port) => {
 
 // Function to find available port
 const findAvailablePort = async (startPort, maxAttempts = 10) => {
-  for (let i = 0; i < maxAttempts; i++) {
-    const port = startPort + i;
-    const available = await isPortAvailable(port);
-    if (available) {
-      return port;
-    }
-    console.log(`Port ${port} is busy, trying next port...`);
+  // Ensure startPort is a valid number
+  const port = parseInt(startPort, 10);
+  if (isNaN(port) || port < 0 || port > 65535) {
+    throw new Error(`Invalid start port: ${startPort}. Must be between 0 and 65535.`);
   }
-  throw new Error(`No available port found after ${maxAttempts} attempts starting from ${startPort}`);
+  
+  for (let i = 0; i < maxAttempts; i++) {
+    const currentPort = port + i;
+    if (currentPort > 65535) {
+      throw new Error(`Port range exceeded. Cannot find available port starting from ${port}.`);
+    }
+    
+    const available = await isPortAvailable(currentPort);
+    if (available) {
+      return currentPort;
+    }
+    console.log(`Port ${currentPort} is busy, trying next port...`);
+  }
+  throw new Error(`No available port found after ${maxAttempts} attempts starting from ${port}`);
 };
 
 // Serve React app for all other routes
