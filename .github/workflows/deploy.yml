@@ -169,7 +169,7 @@ jobs:
           
           # Health check before restart
           echo "Performing pre-deployment health check"
-          pm2 describe ${{ env.APP_NAME }} > /dev/null 2>&1 || pm2 start src/server.js --name ${{ env.APP_NAME }}
+          pm2 describe ${{ env.APP_NAME }} > /dev/null 2>&1 || pm2 start src/server.js --name ${{ env.APP_NAME }} -- --port 3001
           
           # Restart application
           echo "Restarting application"
@@ -180,13 +180,19 @@ jobs:
           
           # Post-deployment health check
           echo "Performing post-deployment health check"
-          if curl -f http://localhost:3001 > /dev/null 2>&1; then
-            echo "Health check passed"
+          
+          # Get the actual port from PM2 logs
+          sleep 2
+          port=$(pm2 logs ${{ env.APP_NAME }} --lines 10 --nostream | grep -o "Server running on.*:\([0-9]*\)" | tail -1 | grep -o "[0-9]*$" || echo "3001")
+          
+          echo "Checking application health on port $port..."
+          if curl -f http://localhost:$port > /dev/null 2>&1; then
+            echo "Health check passed on port $port"
             pm2 save
             # Clean up old backups (keep last 3)
             ls -t frontend/dist_backup_* 2>/dev/null | tail -n +4 | xargs rm -rf 2>/dev/null || true
           else
-            echo "Health check failed, rolling back"
+            echo "Health check failed on port $port, rolling back"
             if [ -d "frontend/dist_backup_$timestamp" ]; then
               rm -rf frontend/dist
               mv frontend/dist_backup_$timestamp frontend/dist
