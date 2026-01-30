@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Github, Linkedin } from 'lucide-react';
+import { Mail, Phone, MapPin, Github, Linkedin, Facebook, Twitter } from 'lucide-react';
 import ContactForm from '../ui/ContactForm';
 
 const Contact: React.FC = () => {
@@ -13,6 +13,8 @@ const Contact: React.FC = () => {
     phone: '+880 1234-567890',
     linkedinUrl: 'https://linkedin.com/in/shanidsajjatuz',
     githubUrl: 'https://github.com/perashanid',
+    facebookUrl: 'https://www.facebook.com/shanidsajjatuz.islamrabid/',
+    twitterUrl: 'https://x.com/perashanid',
     resumeUrl: 'https://shanid-cv.vercel.app',
     profileImageUrl: 'https://ui-avatars.com/api/?name=Shanid+Sajjatuz+Islam&size=400&background=715A5A&color=D3DAD9&bold=true'
   };
@@ -88,22 +90,49 @@ const Contact: React.FC = () => {
             {/* Social Links */}
             <div>
               <h4 className="font-medium text-dark-charcoal dark:text-light-sage mb-4">Follow Me</h4>
-              <div className="flex gap-4">
+              <div className="flex gap-6">
                 <a
                   href={personalInfo.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 bg-dark-charcoal dark:bg-medium-gray text-light-sage rounded-lg flex items-center justify-center hover:bg-medium-gray dark:hover:bg-dark-charcoal transition-colors"
+                  className="text-medium-gray dark:text-light-sage/70 hover:text-dark-charcoal dark:hover:text-light-sage transition-colors"
+                  aria-label="GitHub"
                 >
-                  <Github size={20} />
+                  <Github size={32} />
                 </a>
                 <a
                   href={personalInfo.linkedinUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 bg-warm-brown dark:bg-warm-brown-light text-light-sage dark:text-dark-charcoal rounded-lg flex items-center justify-center hover:bg-warm-brown/80 dark:hover:bg-warm-brown-light/80 transition-colors"
+                  className="text-medium-gray dark:text-light-sage/70 hover:text-dark-charcoal dark:hover:text-light-sage transition-colors"
+                  aria-label="LinkedIn"
                 >
-                  <Linkedin size={20} />
+                  <Linkedin size={32} />
+                </a>
+                <a
+                  href={personalInfo.facebookUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-medium-gray dark:text-light-sage/70 hover:text-dark-charcoal dark:hover:text-light-sage transition-colors"
+                  aria-label="Facebook"
+                >
+                  <Facebook size={32} />
+                </a>
+                <a
+                  href={personalInfo.twitterUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-medium-gray dark:text-light-sage/70 hover:text-dark-charcoal dark:hover:text-light-sage transition-colors"
+                  aria-label="Twitter"
+                >
+                  <Twitter size={32} />
+                </a>
+                <a
+                  href={`mailto:${personalInfo.email}`}
+                  className="text-medium-gray dark:text-light-sage/70 hover:text-dark-charcoal dark:hover:text-light-sage transition-colors"
+                  aria-label="Email"
+                >
+                  <Mail size={32} />
                 </a>
               </div>
             </div>

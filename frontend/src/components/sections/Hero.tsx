@@ -1,4 +1,4 @@
-import { ChevronDown, Download, Github, Linkedin, Twitter, Mail, Users, MessageCircle } from 'lucide-react';
+import { ChevronDown, Download, Github, Linkedin, Twitter, Mail, Users, MessageCircle, Facebook } from 'lucide-react';
 
 // Demo personal info data
 const personalInfo = {
@@ -8,9 +8,11 @@ const personalInfo = {
     bio: 'Passionate software developer with 5+ years of experience building modern web applications using Node.js, React, and cloud technologies.',
     detailedBio: 'I am a dedicated full-stack developer with over 5 years of experience in creating robust, scalable web applications.',
     email: 'shanidsajjatuz@gmail.com',
-    phone: '+880 1234-567890',
+    phone: '+880 1518964878',
     linkedinUrl: 'https://linkedin.com/in/shanidsajjatuz',
     githubUrl: 'https://github.com/perashanid',
+    facebookUrl: 'https://www.facebook.com/shanidsajjatuz.islamrabid/',
+    twitterUrl: 'https://x.com/perashanid',
     resumeUrl: 'https://shanid-cv.vercel.app',
     profileImageUrl: '/profile.jpg'
 };
@@ -37,16 +39,22 @@ const Hero: React.FC = () => {
             color: 'hover:text-blue-600'
         },
         {
+            icon: Facebook,
+            url: personalInfo.facebookUrl,
+            label: 'Facebook',
+            color: 'hover:text-blue-500'
+        },
+        {
+            icon: Twitter,
+            url: personalInfo.twitterUrl,
+            label: 'X (Twitter)',
+            color: 'hover:text-blue-400'
+        },
+        {
             icon: Mail,
             url: `mailto:${personalInfo.email}`,
             label: 'Email',
             color: 'hover:text-red-600'
-        },
-        {
-            icon: Twitter,
-            url: 'https://twitter.com/shanidsajjatuz',
-            label: 'Twitter',
-            color: 'hover:text-blue-400'
         }
     ];
 

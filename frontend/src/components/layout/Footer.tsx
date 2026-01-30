@@ -5,7 +5,7 @@ const Footer: React.FC = () => {
   const personalInfo = {
     name: 'Shanid Sajjatuz Islam',
     email: 'shanidsajjatuz@gmail.com',
-    phone: '+880 1234-567890',
+    phone: '+880 1518964878',
     githubUrl: 'https://github.com/perashanid',
     linkedinUrl: 'https://linkedin.com/in/shanidsajjatuz',
     resumeUrl: 'https://shanid-cv.vercel.app'
@@ -79,10 +79,10 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Quick Links & Social */}
+          {/* Quick Links */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Connect</h3>
-            <div className="space-y-3 mb-6">
+            <div className="space-y-3">
               <button
                 onClick={scrollToTop}
                 className="block hover:text-warm-brown dark:hover:text-warm-brown-light transition-colors text-left text-sm"
@@ -98,41 +98,15 @@ const Footer: React.FC = () => {
                 Download Resume
               </a>
             </div>
-            
-            {/* Social Links */}
-            <div className="flex flex-wrap gap-3">
-              {socialLinks.map((social) => {
-                const IconComponent = social.icon;
-                return (
-                  <a
-                    key={social.name}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center w-10 h-10 bg-light-sage/50 dark:bg-dark-charcoal hover:bg-warm-brown dark:hover:bg-warm-brown-light text-dark-charcoal dark:text-light-sage hover:text-white dark:hover:text-dark-charcoal rounded-full transition-all duration-300 hover:scale-110"
-                    aria-label={social.name}
-                  >
-                    <IconComponent size={18} />
-                  </a>
-                );
-              })}
-            </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
         <div className="border-t border-dark-charcoal/20 dark:border-light-sage/20 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-4 md:mb-0">
-              <p className="text-sm text-dark-charcoal/60 dark:text-light-sage/60">
-                © {new Date().getFullYear()} {personalInfo.name}. All rights reserved.
-              </p>
-            </div>
-            <div className="flex items-center text-sm text-dark-charcoal/60 dark:text-light-sage/60">
-              <span>Made with</span>
-              <Heart className="w-4 h-4 mx-1 text-warm-brown dark:text-warm-brown-light fill-current" />
-              <span>using React & Node.js</span>
-            </div>
+          <div className="flex justify-center items-center">
+            <p className="text-sm text-dark-charcoal/60 dark:text-light-sage/60">
+              © {new Date().getFullYear()} {personalInfo.name}. All rights reserved.
+            </p>
           </div>
         </div>
       </div>
