@@ -1,4 +1,4 @@
-name: CI/CD Pipeline
+name: Frontend CI/CD Pipeline
 
 on:
   push:
@@ -9,9 +9,6 @@ on:
 
 env:
   NODE_VERSION: '18'
-  PRODUCTION_HOST: 135.235.169.147
-  PRODUCTION_USER: azureuser
-  APP_NAME: portfolio
 
 jobs:
   ci:
@@ -27,34 +24,23 @@ jobs:
       with:
         node-version: ${{ env.NODE_VERSION }}
         cache: 'npm'
-        
-    - name: Install backend dependencies
-      run: npm install
+        cache-dependency-path: frontend/package-lock.json
       
     - name: Install frontend dependencies
       run: |
         cd frontend
         npm install
         
-    - name: Run backend linting
-      run: npm run lint --if-present
-      continue-on-error: true
-      
     - name: Run frontend linting
       run: |
-        echo "Linting temporarily disabled"
-        # cd frontend
-        # npm run lint
+        cd frontend
+        npm run lint --if-present
       continue-on-error: true
         
     - name: Run type checking
       run: |
         cd frontend
         npm run type-check
-      continue-on-error: true
-        
-    - name: Run backend tests
-      run: npm test --if-present
       continue-on-error: true
       
     - name: Run frontend tests
@@ -64,7 +50,7 @@ jobs:
       continue-on-error: true
 
   build:
-    name: Build Application
+    name: Build Frontend
     runs-on: ubuntu-latest
     needs: ci
     
@@ -77,9 +63,7 @@ jobs:
       with:
         node-version: ${{ env.NODE_VERSION }}
         cache: 'npm'
-        
-    - name: Install backend dependencies
-      run: npm install
+        cache-dependency-path: frontend/package-lock.json
         
     - name: Install frontend dependencies
       run: |
@@ -96,17 +80,7 @@ jobs:
       with:
         name: build-files
         path: frontend/dist/
-        retention-days: 1
-        
-    - name: Upload backend artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: backend-files
-        path: |
-          src/
-          package.json
-          package-lock.json
-        retention-days: 1
+        retention-days: 7
 
   deploy-staging:
     name: Deploy to Staging
@@ -119,87 +93,31 @@ jobs:
     - name: Deploy to Staging Environment
       run: |
         echo "Deploying to staging environment"
-        echo "This would deploy to a staging server"
-        echo "All deployment steps would run here without affecting production"
+        echo "Configure your static site hosting here (Render, Vercel, Netlify, etc.)"
         echo "Staging deployment completed successfully"
 
   deploy:
-    name: Continuous Deployment
+    name: Deploy to Production
     runs-on: ubuntu-latest
     needs: [ci, build]
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     environment: production
     
     steps:
-    - name: Deploy to Azure VM
-      uses: appleboy/ssh-action@v0.1.7
+    - name: Download build artifacts
+      uses: actions/download-artifact@v4
       with:
-        host: ${{ env.PRODUCTION_HOST }}
-        username: ${{ env.PRODUCTION_USER }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script: |
-          set -e
-          
-          echo "Starting deployment process"
-          
-          # Navigate to project directory
-          cd ~/Portfolio_v2
-          
-          # Create backup of current deployment
-          timestamp=$(date +%Y%m%d_%H%M%S)
-          cp -r frontend/dist frontend/dist_backup_$timestamp 2>/dev/null || true
-          
-          # Pull latest changes
-          echo "Fetching latest changes from repository"
-          git fetch origin
-          git reset --hard origin/main
-          
-          # Install backend dependencies
-          echo "Installing backend dependencies"
-          npm install --only=production
-          
-          # Install frontend dependencies and build
-          echo "Installing frontend dependencies"
-          cd frontend
-          npm install
-          
-          echo "Building frontend application"
-          npm run build
-          cd ..
-          
-          # Health check before restart
-          echo "Performing pre-deployment health check"
-          pm2 describe ${{ env.APP_NAME }} > /dev/null 2>&1 || pm2 start src/server.js --name ${{ env.APP_NAME }} -- --port 3001
-          
-          # Restart application
-          echo "Restarting application"
-          pm2 restart ${{ env.APP_NAME }}
-          
-          # Wait for application to start
-          sleep 5
-          
-          # Post-deployment health check
-          echo "Performing post-deployment health check"
-          
-          # Get the actual port from PM2 logs
-          sleep 2
-          port=$(pm2 logs ${{ env.APP_NAME }} --lines 10 --nostream | grep -o "Server running on.*:\([0-9]*\)" | tail -1 | grep -o "[0-9]*$" || echo "3001")
-          
-          echo "Checking application health on port $port..."
-          if curl -f http://localhost:$port > /dev/null 2>&1; then
-            echo "Health check passed on port $port"
-            pm2 save
-            # Clean up old backups (keep last 3)
-            ls -t frontend/dist_backup_* 2>/dev/null | tail -n +4 | xargs rm -rf 2>/dev/null || true
-          else
-            echo "Health check failed on port $port, rolling back"
-            if [ -d "frontend/dist_backup_$timestamp" ]; then
-              rm -rf frontend/dist
-              mv frontend/dist_backup_$timestamp frontend/dist
-              pm2 restart ${{ env.APP_NAME }}
-            fi
-            exit 1
-          fi
-          
-          echo "Deployment completed successfully"
-          pm2 status
+        name: build-files
+        path: frontend/dist
+        
+    - name: Deploy to Static Hosting
+      run: |
+        echo "Deploy your static site here"
+        echo "Options:"
+        echo "  - Render Static Site"
+        echo "  - Vercel"
+        echo "  - Netlify"
+        echo "  - Cloudflare Pages"
+        echo "  - GitHub Pages"
+        echo ""
+        echo "The built files are in frontend/dist/"
