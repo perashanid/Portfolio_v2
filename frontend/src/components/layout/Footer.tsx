@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Phone, Twitter, Instagram, Heart } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
 
 const Footer: React.FC = () => {
   // Static personal info data
@@ -11,28 +11,7 @@ const Footer: React.FC = () => {
     resumeUrl: 'https://shanid-cv.vercel.app'
   };
 
-  const socialLinks = [
-    {
-      name: 'GitHub',
-      url: 'https://github.com/perashanid',
-      icon: Github,
-    },
-    {
-      name: 'LinkedIn',
-      url: 'https://linkedin.com/in/shanidsajjatuz',
-      icon: Linkedin,
-    },
-    {
-      name: 'Twitter',
-      url: 'https://twitter.com/perashanid',
-      icon: Twitter,
-    },
-    {
-      name: 'Instagram',
-      url: 'https://instagram.com/perashanid',
-      icon: Instagram,
-    },
-  ];
+
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
