@@ -8,7 +8,7 @@ const personalInfo = {
   bio: 'Passionate software developer with 5+ years of experience building modern web applications using Node.js, React, and cloud technologies.',
   detailedBio: 'I am a dedicated full-stack developer with over 5 years of experience in creating robust, scalable web applications. My expertise spans across backend development with Node.js and Express, frontend development with React and TypeScript, and cloud deployment with modern platforms. I have a strong passion for clean code, test-driven development, and continuous learning. Throughout my career, I have successfully delivered multiple projects from conception to deployment, working both independently and as part of agile teams.',
   email: 'shanidsajjatuz@gmail.com',
-  phone: '+880 1234-567890',
+  phone: '+880 1518964878',
   linkedinUrl: 'https://linkedin.com/in/shanidsajjatuz',
   githubUrl: 'https://github.com/perashanid',
   resumeUrl: 'https://shanid-cv.vercel.app',
